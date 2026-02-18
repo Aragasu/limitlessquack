@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&display=swap');
+
+:root {
+    --purple-main: #a855f7;
+    --purple-soft: #9333ea;
+    --purple-deep: #6b21a8;
+    --bg-dark: #050505;
+    --card-dark: #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Unbounded', sans-serif;
+}
+
+body {
+    background: var(--bg-dark) url("images/bg1.png") center/cover no-repeat fixed;
+    color: #f3e8ff;
+    overflow-x: hidden;
+
+    cursor: url("images/cursor/default.png") 16 16, auto;
+}
+
+/* Cursor States */
+a, button {
+    cursor: url("images/cursor/pointer.png") 16 16, pointer;
+}
+
+input, textarea {
+    cursor: url("images/cursor/text.png") 16 16, text;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+    text-align: center;
+    padding: 140px 20px 100px;
+    background: radial-gradient(circle at top, rgba(168,85,247,0.2), transparent 60%);
+}
+
+.logo {
+    width: 130px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 25px var(--purple-main));
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 10px var(--purple-main),
+        0 0 30px var(--purple-soft),
+        0 0 60px var(--purple-deep);
+}
+
+.subtitle {
+    margin-top: 15px;
+    opacity: 0.75;
+    font-weight: 300;
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+section {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 15px var(--purple-soft);
+}
+
+h3 {
+    font-weight: 500;
+}
+
+/* ---------------- TEAM ---------------- */
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(145deg, #111, #0a0a0a);
+    border-radius: 20px;
+    padding: 35px;
+    width: 260px;
+    transition: 0.4s ease;
+    border: 1px solid rgba(168,85,247,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(168,85,247,0.2);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border: 1px solid var(--purple-main);
+    box-shadow:
+        0 0 30px var(--purple-main),
+        0 0 60px rgba(168,85,247,0.4);
+}
+
+.card.big {
+    width: 330px;
+    transform: scale(1.1);
+}
+
+.card.big:hover {
+    transform: scale(1.15);
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.glow-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 22px;
+    border-radius: 12px;
+    border: 1px solid var(--purple-soft);
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s ease;
+    background: transparent;
+    box-shadow: 0 0 10px rgba(168,85,247,0.3);
+    font-weight: 400;
+}
+
+.glow-btn:hover {
+    background: var(--purple-soft);
+    box-shadow:
+        0 0 20px var(--purple-main),
+        0 0 40px var(--purple-soft);
+    transform: translateY(-2px);
+}
+
+/* ---------------- GAMES ---------------- */
+
+.games-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.games-container {
+    display: flex;
+    gap: 40px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.game-card {
+    min-width: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--card-dark);
+    transition: 0.4s ease;
+    border: 1px solid rgba(168,85,247,0.3);
+    box-shadow: 0 0 15px rgba(168,85,247,0.2);
+    text-decoration: none;
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-card h3 {
+    padding: 20px;
+    color: #ffffff; /* PURE WHITE game names */
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    border: 1px solid var(--purple-main);
+    box-shadow:
+        0 0 30px var(--purple-main),
+        0 0 60px rgba(168,85,247,0.4);
+}
+
+/* ---------------- SOCIALS ---------------- */
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* ---------------- MOUSE TRAIL ---------------- */
+
+.mouse-trail div {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--purple-main);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 15px var(--purple-soft);
+    animation: fade 0.6s linear forwards;
+    z-index: 9999;
+}
+
+@keyframes fade {
+    to {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 900px) {
+
+    .team-container {
+        flex-direction: column;
+    }
+
+    .card.big {
+        transform: scale(1);
+    }
+
+    .card.big:hover {
+        transform: scale(1.05);
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .game-card {
+        min-width: 280px;
+    }
+}
